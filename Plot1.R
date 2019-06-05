@@ -13,12 +13,12 @@
   
   ## Total PM2.5 by year
       totalpm <- tapply(nei$Emissions, nei$year, sum)
-      par(mar=c(4,4,2,1), bg="azure", family="HersheySans", lwd=2)
+      par(mar=c(4,4,4,4), bg="azure", family="HersheySans", lwd=2)
       barplot(height=totalpm, xlab="Year", names.arg=c("1999", "2002", "2005", "2008"), ylab="Pm2.5 Emissions", main="Total PM2.5 Emissions by Year", col=c("blue", "deepskyblue", "turquoise", "cyan"))
 
   ## Saving Plot 1 as a .png file
       png("plot1.png", width=600, height=600)
       totalpm <- tapply(nei$Emissions, nei$year, sum)
-      par(mar=c(4,4,2,1), bg="azure", family="HersheySans", lwd=2)
+      par(mar=c(4,4,4,4), bg="azure", family="HersheySans", lwd=2)
       barplot(height=totalpm, xlab="Year", names.arg=c("1999", "2002", "2005", "2008"), ylab="Pm2.5 Emissions", main="Total PM2.5 Emissions by Year", col=c("blue", "deepskyblue", "turquoise", "cyan"))
       dev.off()
