@@ -13,16 +13,15 @@
       nei <- data.table::as.data.table(x = readRDS(file = "summarySCC_PM25.rds"))
   
   ## In Baltimore city - four sources with most decrease
+      library(dplyr)     
       baltimore <- subset (nei, fips == "24510")
-      pmdata <- tapply(baltimore$Emissions, baltimore$year,baltimore$type, sum)
-      library(dplyr)
       baltimore_pmdata <-summarise(group_by(filter(baltimore), year,type), Emissions=sum(Emissions))
       library(ggplot2)
-      g <- ggplot(data=baltimore_pmdata, aes(x=factor(year), fill=type, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~type) +            xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("Baltimore PM2.5 Emissions by Year and Type") +       scale_fill_brewer(palette = "Dark2")     
+      g <- ggplot(data=baltimore_pmdata, aes(x=factor(year), fill=type, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~type) +            xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("Baltimore PM2.5 Emissions by Year and Type") +       scale_fill_brewer(palette = "Dark2") + theme_light(base_size = 11, base_family = "sans", base_line_size =1, base_rect_size = 1)    
  
  
    ## Saving Plot 3 as a .png file
       png("plot3.png", width=600, height=600)
-      g <- ggplot(data=baltimore_pmdata, aes(x=factor(year), fill=type, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~type) +            xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("Baltimore PM2.5 Emissions by Year and Type") +       scale_fill_brewer(palette = "Dark2")  
+       g <- ggplot(data=baltimore_pmdata, aes(x=factor(year), fill=type, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~type) +            xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("Baltimore PM2.5 Emissions by Year and Type") +       scale_fill_brewer(palette = "Dark2") + theme_light(base_size = 11, base_family = "sans", base_line_size =1, base_rect_size = 1)   
       print(g)
       dev.off()
