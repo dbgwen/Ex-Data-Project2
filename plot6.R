@@ -29,9 +29,9 @@
      ## Graph 6
       g <- ggplot(data=cities_pmdata, aes(x=factor(year), fill=city, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~city) +            xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("PM2.5 Emissions by Year for Baltimore and Los Angeles") +       scale_fill_brewer(palette = "Accent") + theme_light(base_size = 11, base_family = "sans", base_line_size =1, base_rect_size = 1)    
       
-      ## Saving Plot 6
+      ## Saving Plot 6 as a .png
        png("plot6.png", width=600, height=600)
-         g <- ggplot(data=cities_pmdata, aes(x=factor(year), fill=city, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~city) +            xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("PM2.5 Emissions by Year for Baltimore and Los Angeles") +       scale_fill_brewer(palette = "Accent") + theme_light(base_size = 11, base_family = "sans", base_line_size =1, base_rect_size = 1)    
+         g <- ggplot(data=cities_pmdata, aes(x=factor(year), fill=city, y=Emissions)) + geom_bar(stat= "identity") + facet_grid(.~city) + xlab("Year") + ylab("PM2.5 Emissions (tons)") + ggtitle ("PM2.5 Emissions by Year for Baltimore and Los Angeles") +       scale_fill_brewer(palette = "Accent") + theme_light(base_size = 11, base_family = "sans", base_line_size =1, base_rect_size = 1)    
       print(g)
       dev.off()
 
